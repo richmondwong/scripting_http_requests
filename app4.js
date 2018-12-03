@@ -5,9 +5,16 @@ var destination = {
   path: '/http-examples/step3.html'
 };
 
-function getAndPrintHTML (inputDestination) {
 
-  var requestOptions = inputDestination;
+function getHTML (inputDestination, callback) {
+
+  var requestOptions = inputDestination
+  printHTML(inputDestination);
+}
+
+function printHTML (options) {
+
+  var requestOptions = options;
 
   https.get(requestOptions, function (response) {
     response.setEncoding('utf8');
@@ -19,4 +26,4 @@ function getAndPrintHTML (inputDestination) {
 
 };
 
-getAndPrintHTML(destination)
+getHTML(destination, callback);
