@@ -9,11 +9,14 @@ function getAndPrintHTML () {
   };
 
   https.get(requestOptions, function (res) {
-  res.setEncoding('utf8');
-  res.on('data', function (info) {
-    console.log("This is Data" , info)
+
+    res.setEncoding('utf8');
+
+    res.on('data', function (dataPrint) {
+    console.log("This is Data" , dataPrint)
+    })
   })
-  })
+
 };
 
 
