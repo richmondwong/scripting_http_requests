@@ -8,22 +8,25 @@ var destination = {
 
 function getHTML (inputDestination, callback) {
 
-  var requestOptions = inputDestination
-  printHTML(inputDestination);
-}
-
-function printHTML (options) {
-
-  var requestOptions = options;
+  var requestOptions = inputDestination;
+  var savedData = ""
 
   https.get(requestOptions, function (response) {
     response.setEncoding('utf8');
     response.on('data', function (dataPrint){
       console.log(dataPrint)
-    }
-    );
-  });
+      savedData += dataPrint
+    })
 
+    response.on('end', function () {
+      return callback(savedData)
+    })
+  });
+}
+
+function printHTML (input) {
+  console.log(input)
 };
 
-getHTML(destination, callback);
+
+getHTML(destination, printHTML);
