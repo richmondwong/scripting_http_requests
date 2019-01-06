@@ -18,8 +18,4 @@ function getAndPrintHTMLChunks () {
   })
 }
 
-
-
-
-
 getAndPrintHTMLChunks()
